@@ -8,7 +8,7 @@ contract Vault is Ownable {
     // State variables
     mapping(address => bool) private whitelistedTokens;
     mapping(address => mapping(address => uint256)) public deposits; // User -> Token -> Amount
-    bool private paused;
+    bool public paused;
 
     // Events
     event Deposit(address indexed user, address indexed token, uint256 amount);

@@ -58,6 +58,11 @@ contract VaultTest is Test {
         vault.pause();
     }
 
+    function testFail_UnauthorizedUnpause() public {
+        vm.prank(address(0x123));
+        vault.unpause();
+    }
+
     function testFail_UnauthorizedWhitelistToken() public {
         vm.prank(address(0x123));
         vault.whitelistToken(address(0x456));
@@ -163,5 +168,4 @@ contract VaultTest is Test {
         emit Withdraw(address(this), address(token), amount);
         vault.withdraw(address(token), amount);
     }
-
 }
