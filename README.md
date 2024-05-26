@@ -25,12 +25,7 @@ The Vault contract is a Solidity smart contract designed to securely manage the 
    cd [REPOSITORY_DIRECTORY]
    ```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Compile the contract**:
+2. **Compile the contract**:
    ```bash
    forge build
    ```
@@ -39,8 +34,8 @@ The Vault contract is a Solidity smart contract designed to securely manage the 
 
 To run the test suite:
 
-\```bash
+```bash
 forge test
-\```
+```
 
-This command will execute the test cases defined in the `test/VaultTest.sol` file, ensuring the contract functions as expected.
+This command will execute the test cases defined in the `test/Vault.t.sol` file, ensuring the contract functions as expected.
