@@ -140,6 +140,7 @@ contract VaultTest is Test {
 
         // Attempt to deposit a non-whitelisted token
         vault.deposit(address(nonWhitelistedToken), 50 ether);
+        vm.expectRevert();
     }
 
     function testFail_WithdrawWithNonWhitelistedToken() public {
@@ -149,6 +150,7 @@ contract VaultTest is Test {
 
         // Attempt to withdraw a non-whitelisted token
         vault.withdraw(address(nonWhitelistedToken), 50 ether);
+        vm.expectRevert();
     }
 
     // Testing event emission
