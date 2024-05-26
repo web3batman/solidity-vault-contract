@@ -20,20 +20,20 @@ The Vault contract is a Solidity smart contract designed to securely manage the 
 ## Setup
 
 1. **Clone the repository**:
-   \```bash
+   ```bash
    git clone [REPOSITORY_URL]
    cd [REPOSITORY_DIRECTORY]
-   \```
+   ```
 
 2. **Install dependencies**:
-   \```bash
+   ```bash
    npm install
-   \```
+   ```
 
 3. **Compile the contract**:
-   \```bash
+   ```bash
    forge build
-   \```
+   ```
 
 ## Running Tests
 
