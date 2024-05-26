@@ -1,66 +1,46 @@
-## Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+# Vault Contract
 
-Foundry consists of:
+## Overview
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+The Vault contract is a Solidity smart contract designed to securely manage the deposits and withdrawals of ERC-20 tokens of a user. It includes features like whitelisting of tokens, pausing and unpausing of deposit/withdrawal functions, and access control for administrative functions.
 
-## Documentation
+## Features
 
-https://book.getfoundry.sh/
+- **Deposit and Withdrawal**: Users can deposit and withdraw whitelisted ERC-20 tokens deposited by them.
+- **Token Whitelisting**: Admin can whitelist tokens that are allowed for deposit.
+- **Pause/Unpause**: Admin can pause or unpause the contract, restricting or allowing deposits and withdrawals.
+- **Access Control**: Only admin can pause/unpause the contract and whitelist tokens.
 
-## Usage
+## Requirements
 
-### Build
+- [Solidity](https://soliditylang.org/)
+- [Foundry](https://getfoundry.sh/)
 
-```shell
-$ forge build
-```
+## Setup
 
-### Test
+1. **Clone the repository**:
+   \```bash
+   git clone [REPOSITORY_URL]
+   cd [REPOSITORY_DIRECTORY]
+   \```
 
-```shell
-$ forge test
-```
+2. **Install dependencies**:
+   \```bash
+   npm install
+   \```
 
-### Format
+3. **Compile the contract**:
+   \```bash
+   forge build
+   \```
 
-```shell
-$ forge fmt
-```
+## Running Tests
 
-### Gas Snapshots
+To run the test suite:
 
-```shell
-$ forge snapshot
-```
+\```bash
+forge test
+\```
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This command will execute the test cases defined in the `test/VaultTest.sol` file, ensuring the contract functions as expected.

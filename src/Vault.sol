@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Vault is Ownable {
     // State variables
     mapping(address => bool) private whitelistedTokens;
-    mapping(address => mapping(address => uint256)) private deposits; // User -> Token -> Amount
+    mapping(address => mapping(address => uint256)) public deposits; // User -> Token -> Amount
     bool private paused;
 
     // Events
@@ -26,7 +26,7 @@ contract Vault is Ownable {
     }
 
     // Constructor
-    constructor() {
+    constructor() Ownable(msg.sender) {
         paused = false;
     }
 
@@ -45,6 +45,7 @@ contract Vault is Ownable {
 
     // User functions
     function deposit(address _token, uint256 _amount) public whenNotPaused onlyWhitelisted(_token) {
+        // Assuming approval
         require(IERC20(_token).transferFrom(msg.sender, address(this), _amount), "Transfer failed");
         deposits[msg.sender][_token] += _amount;
         emit Deposit(msg.sender, _token, _amount);
